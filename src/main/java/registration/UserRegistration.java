@@ -2,7 +2,7 @@ package registration;
 
 public class UserRegistration {
 
-    // Базовая реализация: email валиден, если содержит "@" и "."
+    // Р‘Р°Р·РѕРІР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ: email РІР°Р»РёРґРµРЅ, РµСЃР»Рё СЃРѕРґРµСЂР¶РёС‚ "@" Рё "."
      public boolean validateEmail(String email) {
         if (email == null || email.isBlank()) {
             return false;
@@ -10,22 +10,22 @@ public class UserRegistration {
         return email.contains("@") && email.contains(".");
     }
 
-    // Базовая реализация: пароль не короче 6 символов
+    // Р‘Р°Р·РѕРІР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ: РїР°СЂРѕР»СЊ РЅРµ РєРѕСЂРѕС‡Рµ 6 СЃРёРјРІРѕР»РѕРІ
      public boolean validatePassword(String password) {
         return password != null && password.length() >= 6;
     }
 
-    // Базовая реализация: проверка совпадения паролей
+    // Р‘Р°Р·РѕРІР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ: РїСЂРѕРІРµСЂРєР° СЃРѕРІРїР°РґРµРЅРёСЏ РїР°СЂРѕР»РµР№
      public void register(String email, String password, String confirmPassword, String username)
             throws RegistrationException {
         if (!validateEmail(email)) {
-            throw new RegistrationException("Некорректный email");
+            throw new RegistrationException("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ email");
         }
         if (!validatePassword(password)) {
-            throw new RegistrationException("Пароль слишком короткий");
+            throw new RegistrationException("РџР°СЂРѕР»СЊ СЃР»РёС€РєРѕРј РєРѕСЂРѕС‚РєРёР№");
         }
         if (!password.equals(confirmPassword)) {
-            throw new RegistrationException("Пароли не совпадают");
+            throw new RegistrationException("РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚");
         }
     }
 }
